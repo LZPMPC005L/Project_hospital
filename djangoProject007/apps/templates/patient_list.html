@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Central hospital management system</h1>
+<a href=" 'patient_create' %}">Function selection</a >
+<table>
+    <thead>
+    <tr>
+        <th>Patient</th>
+        <p>{{ article.content|linebreaksbr }}</p>
+        <th>Docter</th>
+        <p>{{ article.content|linebreaksbr }}</p>
+        <th>Pathology department</th>
+        <pre>{{ article.content }}</pre>
+        <th>Administrator</th>
+
+
+        <div id="patient_EditDiv">
+	<form id="patientModifyForm" enctype="multipart/form-data"  method="post">
+        {% csrf_token %}
+		<div>
+			<span class="label">Patient's ID：</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="patient_patientId_modify" name="patient.patientId" value="{{ patientId }}" style="width:200px" />
+			</span>
+		</div>
+
+		<div>
+			<span class="label">Patient's name：</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="patient_patientName_modify" name="patient.patientName" style="width:200px" />
+
+			</span>
+
+		</div>
+		<div>
+			<span class="label">Patient's gender ：</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="patient_sex_modify" name="patient.sex" style="width:200px" />
+
+			</span>
+
+		</div>
+		<div>
+			<span class="label">Patient's mailbox：</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="patient_cardNumber_modify" name="patient.cardNumber" style="width:200px" />
+
+			</span>
+
+		</div>
+		<div>
+			<span class="label">Patient's telephone：</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="patient_telephone_modify" name="patient.telephone" style="width:200px" />
+
+			</span>
+
+		</div>
+		<div>
+			<span class="label">Pathological diagnosis：</span>
+			<span class="inputControl">
+				<textarea id="patient_illnessCase_modify" name="patient.illnessCase" type="text/plain"   style="width:750px;height:500px;"></textarea>
+
+			</span>
+
+		</div>
+		<div>
+			<span class="label">Responsible doctor：</span>
+			<span class="inputControl">
+				<input class="textbox"  id="patient_doctorObj_doctorNumber_modify" name="patient.doctorObj.doctorNumber" style="width: auto"/>
+			</span>
+		</div>
+		<div>
+			<span class="label">Registration time：</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="patient_addTime_modify" name="patient.addTime" />
+
+			</span>
+
+		</div>
+		<div class="operation">
+			<a id="patientModifyButton" class="easyui-linkbutton">Renewal</a>
+		</div>
+	</form>
+</div>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for patient in patients %}
+    <tr>
+
+        <td>
+            <a href="{% url 'patient_detail' patient.patient_id %}">View</a >
+            <a href="{% url 'patient_update' patient.patient_id %}">Edit</a >
+            <a href="{% url 'patient_delete' patient.patient_id %}">Delete</a >
+        </td>
+    </tr>So next time I need to know exactly what are the discussion you have done and what task was everyone supposed to be doing and what is the code repository where everyone has pushes code there so I should be able to see on the guitar repository that OK Jamie has commit this and John has also added this code. So I should be able to see so then now the next project you have the change.
+
+
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
